@@ -186,6 +186,14 @@ public class Image2Map implements ModInitializer {
                 width = image.getWidth();
                 height = image.getHeight();
             }
+            if (height > 1280) {
+                source.sendFeedback(() -> Text.literal("Warning, selected height exceeds the limit of 1280 pixels. height automatically set to 1280 pixels"), false);
+                height = 1280;
+            }
+            if (width > 1280){
+                source.sendFeedback(() -> Text.literal("Warning, selected width exceeds the limit of 1280 pixels. width automatically set to 1280 pixels"), false);
+                width = 1280;
+            }
 
             int finalHeight = height;
             int finalWidth = width;
